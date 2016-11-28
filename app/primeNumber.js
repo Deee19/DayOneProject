@@ -1,5 +1,4 @@
-modules.exports = {
-isNumberPrime:function(number)
+function isNumberPrime (number)
 {
   var i;
   var squareroot = parseInt(Math.sqrt(number));
@@ -11,8 +10,8 @@ isNumberPrime:function(number)
     }
   }
   return true;
-},
-
+}
+module.exports = {
 prime: function(n)
 {
   var i, prime =[];
