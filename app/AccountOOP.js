@@ -1,78 +1,59 @@
-class Account
-{
-	constructor(accountNumber, openingAmount)
-	{
+class Account {
+	constructor(accountNumber, openingAmount) {
 		this.accountNumber = accountNumber;
-  		this.balance = openingAmount;
+		this.balance = openingAmount;
 	}
 
-	deposit (amount)
-    {
-      this.balance += amount;
-      return this.balance;
-    }
+	deposit(amount) {
+		this.balance += amount;
+		return this.balance;
+	}
 }
-class SavingsAccount extends Account
-{
-	constructor(accountNumber, openingAmount)
-	{
+class SavingsAccount extends Account {
+	constructor(accountNumber, openingAmount) {
 		super(accountNumber, openingAmount);
 	}
-	deposit(depAmount)
-	{
+	deposit(depAmount) {
 		super.deposit(depAmount);
 	}
-	withdrawal(amount)
-  	{
-  	   if (amount > this.balance)
-	    {
-	      return "Overdraft";
-	    }
-	    else if ((this.balance - amount) < 1000)
-	    {
-	      return "Invalid withdrawal amount";
-	    }
-	    else
-	    {
-	      this.balance -= amount;
-	      return this.balance;
-	    }
-  	} 
+	withdrawal(amount) {
+		if (amount > this.balance) {
+			return "Overdraft";
+		}
+		else if ((this.balance - amount) < 1000) {
+			return "Invalid withdrawal amount";
+		}
+		else {
+			this.balance -= amount;
+			return this.balance;
+		}
+	}
 }
 
-class CurrentAccount extends Account
-{
-	constructor(accountNumber, openingAmount)
-	{
+class CurrentAccount extends Account {
+	constructor(accountNumber, openingAmount) {
 		super(accountNumber, openingAmount);
 	}
-	deposit(depAmount)
-	{
+	deposit(depAmount) {
 		super.deposit(depAmount);
 	}
-	withdrawal(amount)
-      {
-        if (amount > this.balance)
-        {
-          return "Overdraft";
-        }
-        else
-        {
-        this.balance -= amount;
-        return this.balance;
-        }
-      }
-  getloan(amount)
-    {
-      if (this.balance > 1000)
-      {
-        return "Loan can be granted";
-      }
-      else
-      {
-        return "Loan cannot be granted";
-      }
-    }
+	withdrawal(amount) {
+		if (amount > this.balance) {
+			return "Overdraft";
+		}
+		else {
+			this.balance -= amount;
+			return this.balance;
+		}
+	}
+	getloan(amount) {
+		if (this.balance > 1000) {
+			return "Loan can be granted";
+		}
+		else {
+			return "Loan cannot be granted";
+		}
+	}
 }
 // console.log('SavingsAccount')
 // var dami = new SavingsAccount(23435233, 2000);
